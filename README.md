@@ -26,6 +26,9 @@ Users can perform the following actions:
 - **Category Filter:**
   - Use the "Personal" and "Business" buttons to filter tasks based on their category.
 
+**Comments:**
+  - The code is well-commented for better understanding and maintainability.
+    
 ## Local Storage
 
 Tasks are stored in the browser's local storage, allowing data persistence across page reloads. 
