@@ -49,4 +49,4 @@ The app uses JSON serialization and deserialization to store and retrieve task d
 - CSS
 - JavaScript
 
-Author Anna Kioko
+## Author Anna Kioko
