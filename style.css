@@ -258,13 +258,37 @@ the second flex is flex-shrink factor meaning the element can shrink if there is
 	color: var(--grey);
 }
 
-@media only screen and (max-width: 767px) {
-	/* for phones*/
-  }
+/* for phone dimensions */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 
-  @media only screen and (min-width: 768px) {
-	/* Styles specific to tablets and laptops go here */
-  }
+    .create-todo .options {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+  
+
+/* for laptops and desktops*/
+  @media only screen and (min-width: 1024px) {
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    section {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .create-todo .options {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
 
 /*why am I using rem: basically it is a good unit to use for my page to be responsive. 
  so when I need to adjust the layout based on media queries (@media screen...), rem will change the root font
