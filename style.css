@@ -1,1 +1,264 @@
+/* root simply gives simpler names to the colors used so instead of #EEE i get light so when i want
+to use that color anywhere i don't have to remember the code i just right light. 
+this makes it easier to read code and maintain the same color scheme and its easier to use compared to writing 
+the color code */
+:root {
+	--primary: #EA40A4;
+	--Education: #3a82ee;
+	--personal: var(--primary);
+	--light: #ffcbcb;
+	--grey: #888;
+	--dark: #313154;
+	--danger: #ff5b57;
 
+	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+	--Education-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+	--Personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+/* End of root */
+
+/* Resets 
+the first is the common reset 
+the second removes default styles for certain elements. Because the app deals with alot of input
+well its basically an input web (text input) specifying here makes it easy for me. but the reset
+exempts the radio type the checkbox and the button element. */
+* {  
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'montserrat', sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: initial;
+}
+/* End of Resets */
+
+
+/* the var is how we access the root elements. The var() function 
+is used to reference a custom property.  */
+body {
+	background: var(--light);
+	color: var(--dark)
+}
+
+section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+h3 {
+	color: var(--dark);
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+h4 {
+	color: var(--grey);
+	font-size: 0.875rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+	display: flex;
+}
+
+.greeting .title input {
+	margin-left: 0.5rem;
+	flex: 1 1 0%;
+	min-width: 0;
+}
+
+.greeting .title, 
+.greeting .title input {
+	color: var(--dark);
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.create-todo input[type="text"] {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #FFF;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1rem;
+	margin-bottom: 1.5rem;
+} /* I've used grid because when i wrap the otions in flex and display them in flex they are not appearing
+how i want them to. i even used flex basis to calculate how much space they need to take and they are not c
+changing in appearance. thys occupy less than 25% of the space they are supposed to take.  */
+
+.create-todo .options label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF;
+	padding: 1.5rem;
+	box-shadow: var(--shadow);
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	display: none;
+}
+
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 999px;
+	border: 2px solid var(--business);
+	box-shadow: var(--business-glow);
+}
+
+.bubble.Personal {
+	border-color: var(--personal);
+	box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+	content: '';
+	display: block;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+	background-color: var(--business);
+	box-shadow: var(--business-glow);
+	border-radius: 999px;
+	transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+	background-color: var(--personal);
+	box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}
+
+.create-todo .options label div {
+	color: var(--dark);
+	font-size: 1.125rem;
+	margin-top: 1rem;
+}
+
+.create-todo input[type="submit"] {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #FFF;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: var(--primary);
+	box-shadow: var(--personal-glow);
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: 0.2s ease-out;
+}
+
+.create-todo input[type="submit"]:hover {
+	opacity: 0.75;
+}
+
+.todo-list .list {
+	margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+	display: flex;
+	align-items: center;
+	background-color: #FFF;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1rem;
+}
+
+.todo-item label {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+  
+/*  the synatax below represents 3 different things. they are supposed to be that spaced.
+the first 1 is flex-grow factor, meaning the element can grow to take up available space 
+the second flex is flex-shrink factor meaning the element can shrink if there is not enough space
+ the 3rd flex is he flex-basis it sets the initial size of the element to 0%, meaning it will 
+ initially take up no space.
+ meaning the content will grow to take up all available space, shrink if needed, and initially
+  take up no space.
+  more like how a paragraph for tell me about yourself has maxmimum letter you can input.
+  the less words put the larger the letters the more words used the smaller the letter and when the max
+   words are reached no more letter can be input.*/
+.todo-item .todo-content {
+	flex: 1 1 0%;
+}
+
+.todo-item .todo-content input {
+	color: var(--dark);
+	font-size: 1.125rem;
+}
+
+.todo-item .actions {
+	display: flex;
+	align-items: center;
+}
+
+.todo-item .actions button {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	color: #FFF;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button: hover {
+	opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+}
+
+.todo-item .actions .delete {
+	background-color: var(--danger);
+}
+
+.todo-item.done .todo-content input {
+	text-decoration: line-through;
+	color: var(--grey);
+}
+
+/*why i am using rem: basically it is a good unit to use if for my page to be responsive. 
+ so when i need to adjust the layout based on media queries (@media screen...), rem will change the root font
+ size making global adjustment. so i do not need to change the individual values.
+ so in short it contributes to a repsonsive design.*/
