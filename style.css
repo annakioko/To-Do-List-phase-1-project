@@ -258,7 +258,15 @@ the second flex is flex-shrink factor meaning the element can shrink if there is
 	color: var(--grey);
 }
 
-/*why i am using rem: basically it is a good unit to use if for my page to be responsive. 
- so when i need to adjust the layout based on media queries (@media screen...), rem will change the root font
- size making global adjustment. so i do not need to change the individual values.
- so in short it contributes to a repsonsive design.*/
+@media only screen and (max-width: 767px) {
+	/* for phones*/
+  }
+
+  @media only screen and (min-width: 768px) {
+	/* Styles specific to tablets and laptops go here */
+  }
+
+/*why am I using rem: basically it is a good unit to use for my page to be responsive. 
+ so when I need to adjust the layout based on media queries (@media screen...), rem will change the root font
+ size making global adjustments. so I do not need to change the individual values.
+ so in short it contributes to a responsive design.*/
