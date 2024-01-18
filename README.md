@@ -28,8 +28,8 @@ Users can perform the following actions:
 
 ## Local Storage
 
-Tasks are stored in the browser's local storage, allowing data persistence across page reloads. T
-he app uses JSON serialization and deserialization to store and retrieve task data.
+Tasks are stored in the browser's local storage, allowing data persistence across page reloads. 
+The app uses JSON serialization and deserialization to store and retrieve task data.
 
 ## Usage
 
